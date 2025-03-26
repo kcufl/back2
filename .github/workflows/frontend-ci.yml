@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22'
-          cache: 'yarn'
+          cache: 'npm'
       - name: Verify Yarn version
         run: yarn --version
 
@@ -25,6 +25,7 @@ jobs:
           corepack prepare yarn@3.8.1 --activate
           echo "Yarn version after activation:"
           yarn --version
+          which yarn
 
       - name: Install dependencies (Yarn 3.8.1)
         run: yarn install --immutable
