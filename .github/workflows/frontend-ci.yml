@@ -16,11 +16,15 @@ jobs:
         with:
           node-version: '22'
           cache: 'yarn'
+      - name: Verify Yarn version
+        run: yarn --version
 
       - name: Enable Corepack and activate Yarn 3.8.1
         run: |
           corepack enable
           corepack prepare yarn@3.8.1 --activate
+          echo "Yarn version after activation:"
+          yarn --version
 
       - name: Install dependencies (Yarn 3.8.1)
         run: yarn install --immutable
