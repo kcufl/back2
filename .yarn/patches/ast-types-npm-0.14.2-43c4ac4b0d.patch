@@ -1,4 +1,4 @@
-diff --git a/main.d.ts b/main.d.ts
+Run yarn install --immutablediff --git a/main.d.ts b/main.d.ts
 index 6b9a8d05d61821a7e7dc831a52a9f7b505bfee42..1010bb5352d975a171a4019768ff6f6f2967c301 100644
 --- a/main.d.ts
 +++ b/main.d.ts
