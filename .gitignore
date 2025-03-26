@@ -1,0 +1,7 @@
+# Yarn 2+ 캐시 관련
+.yarn/cache
+.yarn/unplugged
+.yarn/install-state.gz
+
+# PnP
+.pnp.*
