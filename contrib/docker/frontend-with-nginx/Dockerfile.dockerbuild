@@ -50,6 +50,15 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libsqlite3-dev \
     zlib1g-dev \
+    libpixman-1-dev \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libjpeg-dev \
+    libgif-dev \
+    librsvg2-dev \
+    libsecret-1-dev \
+    python3-docutils \
+    asciidoctor \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
