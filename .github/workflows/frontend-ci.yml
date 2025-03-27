@@ -25,7 +25,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
-      - name: Build Backend (Generate .tar.gz)
+      - name: Build Frontend
         run: yarn build:frontend
 
       - name: Set up Docker Buildx
@@ -41,6 +41,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: packages/app/Dockerfile
+          file: ./contrib/docker/frontend-with-nginx/Dockerfile.dockerbuild
           push: true
           tags: kcufl/backstage-frontend:latest
