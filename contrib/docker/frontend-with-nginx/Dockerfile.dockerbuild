@@ -63,12 +63,12 @@ WORKDIR /app
 #     && rm -rf /var/lib/apt/lists/*
 
 # Corepack + Yarn 3 활성화
-RUN corepack enable && corepack prepare yarn@3.8.1 --activate
+# RUN corepack enable && corepack prepare yarn@3.8.1 --activate
 
 # 설치 (루트 기준)
-RUN yarn install --immutable
+# RUN yarn install --immutable
 
-RUN yarn workspace example-app build
+# RUN yarn workspace example-app build
 
 
 
