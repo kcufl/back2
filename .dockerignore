@@ -1,9 +1,16 @@
+# Git 관련
 .git
+.gitignore
+
+# 빌드 산출물
+packages/*/dist
+packages/*/node_modules
+plugins/*/dist
+plugins/*/node_modules
+
+# 기타 불필요한 항목
+node_modules
 .yarn/cache
 .yarn/install-state.gz
 docs
 microsite
-node_modules
-packages/*/src
-packages/*/node_modules
-plugins
