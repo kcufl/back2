@@ -42,10 +42,12 @@ COPY . /app
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
-    build-essential \
     python3 \
     make \
     g++ \
+    build-essential \
+    pkg-config \
+    libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Corepack + Yarn 3 활성화
