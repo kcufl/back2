@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  # 수동 실행을 위한 트리거 추가
 
 jobs:
-  build-and-push-frontend:
+  build-and-push-backend:
     runs-on: ubuntu-latest
 
     steps:
