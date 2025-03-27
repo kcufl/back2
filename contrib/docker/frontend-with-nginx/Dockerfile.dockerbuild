@@ -42,7 +42,7 @@ COPY . /app
 WORKDIR /app
 
 RUN yarn install
-RUN yarn workspace app build
+RUN yarn workspace example-app build
 
 
 
