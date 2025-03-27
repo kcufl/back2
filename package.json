@@ -29,6 +29,7 @@
     "build:api-reports": "yarn build:api-reports:only --tsc",
     "build:api-reports:only": "LANG=en_US.UTF-8 NODE_OPTIONS=--max-old-space-size=8192 backstage-repo-tools api-reports --sql-reports --allow-warnings 'packages/backend-app-api,packages/core-components,plugins/+(catalog|catalog-import|git-release-manager|jenkins|kubernetes)' -o ae-undocumented,ae-wrong-input-file-type --validate-release-tags",
     "build:backend": "yarn workspace example-backend build",
+    "build:frontend": "yarn workspace example-app build",
     "build:knip-reports": "backstage-repo-tools knip-reports",
     "build:plugins-report": "node ./scripts/build-plugins-report",
     "clean": "backstage-cli repo clean",
