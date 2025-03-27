@@ -54,7 +54,7 @@ RUN apt-get update && apt-get install -y \
 RUN corepack enable && corepack prepare yarn@3.8.1 --activate
 
 # 설치 (루트 기준)
-RUN yarn install 
+RUN yarn install --immutable
 
 RUN yarn workspace example-app build
 
