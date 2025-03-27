@@ -1,5 +1,4 @@
-name: Build and Push Docker Image
-
+name: Backstage Frontend Docker CI/CD
 on:
   workflow_dispatch:  # 수동 실행도 가능
 
