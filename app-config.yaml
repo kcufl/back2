@@ -347,7 +347,7 @@ auth:
   ### Providing an auth.session.secret will enable session support in the auth-backend
   # session:
   #   secret: custom session secret
-  # providers:
+  providers:
   #   google:
   #     development:
   #       clientId: ${AUTH_GOOGLE_CLIENT_ID}
@@ -499,3 +499,11 @@ stackstorm:
 
 permission:
   enabled: true
+
+notifications:
+  enabled: false
+  processors:
+    email:
+      sender: 'noreply@example.com'
+      transportConfig:
+        transport: stream
