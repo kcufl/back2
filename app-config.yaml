@@ -141,12 +141,6 @@ proxy:
     '/puppetdb':
       target: https://your.puppetdb.instance.com
 
-    '/api':
-      target: 'http://backstage-backend.default.svc.cluster.local:7007'
-      changeOrigin: true
-      pathRewrite:
-        '^/api': ''
-
 organization:
   name: My Company
 
