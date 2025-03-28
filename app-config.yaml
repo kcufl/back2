@@ -41,9 +41,9 @@ backend:
     # is require for the backend-next to work in this repo
     dangerouslyDisableDefaultAuthPolicy: true
 
-  baseUrl: http://backstage-backend.default.svc.cluster.local
+  baseUrl: http://localhost
   listen:
-    port: 7007
+    port: 3000
   database:
     client: better-sqlite3
     connection: ':memory:'
