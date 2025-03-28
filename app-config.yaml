@@ -41,7 +41,7 @@ backend:
     # is require for the backend-next to work in this repo
     dangerouslyDisableDefaultAuthPolicy: true
 
-  baseUrl: http://backstage-backend.default.svc.cluster.local
+  baseUrl: http://localhost:3000
   listen:
     port: 7007
   database:
