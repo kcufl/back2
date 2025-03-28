@@ -37,6 +37,9 @@ backend:
   #     - secret: ${BACKEND_SECRET}
 
   auth:
+   environment: development
+     providers:
+       guest: {}  # ✅ 로그인 없이 진입 가능
     # TODO: once plugins have been migrated we can remove this, but right now it
     # is require for the backend-next to work in this repo
     dangerouslyDisableDefaultAuthPolicy: true
