@@ -41,9 +41,9 @@ backend:
     # is require for the backend-next to work in this repo
     dangerouslyDisableDefaultAuthPolicy: true
 
-  baseUrl: http://localhost
+  baseUrl: http://backstage-backend.default.svc.cluster.local
   listen:
-    port: 3000
+    port: 7007
   database:
     client: better-sqlite3
     connection: ':memory:'
@@ -140,6 +140,12 @@ proxy:
 
     '/puppetdb':
       target: https://your.puppetdb.instance.com
+
+    '/api':
+      target: 'http://backstage-backend.default.svc.cluster.local:7007'
+      changeOrigin: true
+      pathRewrite:
+        '^/api': ''
 
 organization:
   name: My Company
