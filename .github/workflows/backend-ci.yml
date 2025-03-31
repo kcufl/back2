@@ -2,6 +2,11 @@ name: Backend Docker CI
 
 on:
   workflow_dispatch:  # 수동 실행을 위한 트리거 추가
+  inputs:
+      tag:
+        description: 'Git Tag to use'
+        required: true
+        default: 'v0.0.'
 
 jobs:
   build-and-push-backend:
@@ -62,4 +67,4 @@ jobs:
           context: .
           file: packages/backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/backstage-backend:${{ env.VERSION }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/backstage-backend:${{ github.event.inputs.tag }}
