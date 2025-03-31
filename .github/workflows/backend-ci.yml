@@ -2,7 +2,7 @@ name: Backend Docker CI
 
 on:
   workflow_dispatch:  # 수동 실행을 위한 트리거 추가
-  inputs:
+    inputs:
       tag:
         description: 'Git Tag to use'
         required: true
