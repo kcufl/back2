@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backstage-backend
+  namespace: default
+  generation: 1
+  labels:
+    app: backstage-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backstage-backend
+  template:
+    metadata:
+      labels:
+        app: backstage-backend
+    spec:
+      containers:
+        - name: backstage-backend
+          image: kcufl/backstage-backend:latest
+          ports:
+            - containerPort: 7007
+              protocol: TCP
+          imagePullPolicy: Always
+      restartPolicy: Always
+
+ 
