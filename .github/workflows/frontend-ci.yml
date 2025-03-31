@@ -60,4 +60,4 @@ jobs:
           context: .
           file: ./contrib/docker/frontend-with-nginx/Dockerfile.dockerbuild
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/backstage-backend:${{ github.event.inputs.tag }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/backstage-frontend:${{ github.event.inputs.tag }}
