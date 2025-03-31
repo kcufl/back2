@@ -10,6 +10,19 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+      
+      - name: Extract version from Git tag
+        id: extract_version
+        run: |
+          echo "GITHUB_REF=${GITHUB_REF}"
+          VERSION=$(echo "${GITHUB_REF#refs/tags/}")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Extracted VERSION=$VERSION"
+
+      - name: Debug version
+        run: echo "VERSION is $VERSION"
+        env:
+          VERSION: ${{ env.VERSION }}
 
       - name: Set up Node.js & Corepack
         uses: actions/setup-node@v3
@@ -40,12 +53,7 @@ jobs:
       - name: Build Frontend
         run: yarn build:frontend
 
-      - name: Extract version from Git tag
-        id: extract_version
-        run: |
-          TAG=${GITHUB_REF#refs/tags/v}
-          echo "VERSION=$TAG" >> $GITHUB_ENV
-          echo "Extracted VERSION=$TAG"
+     
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
