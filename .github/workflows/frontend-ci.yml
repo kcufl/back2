@@ -45,6 +45,21 @@ jobs:
       - name: Build Frontend
         run: yarn build:frontend
 
+      - name: Install TechDocs CLI
+        run: npm install -g @techdocs/cli
+
+      - name: Generate TechDocs
+        run: techdocs-cli generate --source-dir . --output-dir ./site
+
+      - name: Publish to Azure Blob
+        run: techdocs-cli publish \
+          --publisher-type azureBlobStorage \
+          --storage-name backstage-techdocs \
+          --azureAccountName kcuflstorageaccount \
+          --azureAccountKey ${{ secrets.AZURE_STORAGE_KEY }}
+        env:
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
