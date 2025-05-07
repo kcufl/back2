@@ -52,7 +52,8 @@ jobs:
         run: techdocs-cli generate --source-dir . --output-dir ./site
 
       - name: Publish to Azure Blob
-        run: techdocs-cli publish \
+        run: |
+          techdocs-cli publish \
           --publisher-type azureBlobStorage \
           --storage-name backstage-techdocs \
           --azureAccountName kcuflstorageaccount \
