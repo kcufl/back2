@@ -58,6 +58,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./deploy/docker/frontend/Dockerfile.dockerbuild
+          file: ./devops/docker/frontend/Dockerfile.dockerbuild
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/backstage-frontend:${{ github.event.inputs.tag }}

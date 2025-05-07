@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kcufl/back
+    repoURL: https://github.com/kcufl/back2
     targetRevision: HEAD
-    path: deploy/backend/overlays/dev
+    path: devops/kustomize/backend/overlays/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: default
