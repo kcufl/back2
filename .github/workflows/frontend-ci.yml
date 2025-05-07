@@ -45,6 +45,12 @@ jobs:
       - name: Build Frontend
         run: yarn build:frontend
 
+      - name: Cache npm
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-cache-${{ hashFiles('package.json') }}
+
       - name: Install TechDocs CLI
         run: npm install -g @techdocs/cli
 
