@@ -1,27 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: backstage-frontend
   namespace: default
   labels:
     app: backstage-frontend
 spec:
-  replicas: 1
   selector:
-    matchLabels:
-      app: backstage-frontend
-  template:
-    metadata:
-      labels:
-        app: backstage-frontend
-    spec:
-      containers:
-        - name: backstage-frontend
-          image: kcufl/backstage-frontend:latest
-          ports:
-            - containerPort: 3000
-              protocol: TCP
-          imagePullPolicy: Always
-      restartPolicy: Always
-
- 
+    app: backstage-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP
