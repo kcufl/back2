@@ -62,7 +62,7 @@ jobs:
           techdocs-cli publish \
           --publisher-type azureBlobStorage \
           --storage-name backstage-techdocs \
-          --entity default/component/my-service \
+          --entity default/component/github \
           --azureAccountName kcuflstorageaccount \
           --azureAccountKey ${{ secrets.AZURE_STORAGE_KEY }}
         env:
