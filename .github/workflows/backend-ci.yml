@@ -1,4 +1,4 @@
-name: Backend deploy Production Deployment CI
+name: Backend Docker CI
 
 on:
   workflow_dispatch:  # 수동 실행을 위한 트리거 추가
@@ -13,6 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Validate version input
+        run: |
+          if [[ ! "${{ github.event.inputs.tag }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "❌ Invalid tag format. Use format like v0.1.0"
+            exit 1
+          fi
+
       - name: Checkout Repository
         uses: actions/checkout@v3
 
@@ -34,7 +41,6 @@ jobs:
             .yarn/cache
             .yarn/unplugged
             .yarn/install-state.gz
-            **/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
@@ -48,7 +54,7 @@ jobs:
       - name: Extract version from Git tag
         id: extract_version
         run: |
-          TAG=${GITHUB_REF#refs/tags/v}
+          TAG=${{ github.event.inputs.tag }}
           echo "VERSION=$TAG" >> $GITHUB_ENV
           echo "Extracted VERSION=$TAG"
 
@@ -65,6 +71,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./devops/docker/backend/Dockerfile
+          file: packages/backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/backstage-backend:${{ github.event.inputs.tag }}
