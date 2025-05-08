@@ -55,7 +55,7 @@ jobs:
         run: npm install -g @techdocs/cli
 
       - name: Generate TechDocs
-        run: techdocs-cli generate --source-dir . --output-dir ./site --no-dirs
+        run: techdocs-cli generate --source-dir . --output-dir ./site
 
       - name: Publish to Azure Blob
         run: |
