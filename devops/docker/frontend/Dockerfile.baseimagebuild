@@ -31,6 +31,11 @@ FROM node:20-bullseye AS builder
 # Additionally, we install dependencies for `techdocs.generator.runIn: local`.
 # https://backstage.io/docs/features/techdocs/getting-started#disabling-docker-in-docker-situation-optional
 
+
+RUN corepack enable && \
+    corepack prepare yarn@4.4.1 --activate && \
+    yarn --version
+
 RUN node -v && yarn -v
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
