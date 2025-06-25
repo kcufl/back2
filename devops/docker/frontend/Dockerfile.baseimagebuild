@@ -30,6 +30,9 @@ FROM node:20-bullseye AS builder
 # in which case you should also move better-sqlite3 to "devDependencies" in package.json.
 # Additionally, we install dependencies for `techdocs.generator.runIn: local`.
 # https://backstage.io/docs/features/techdocs/getting-started#disabling-docker-in-docker-situation-optional
+
+RUN node -v && yarn -v
+
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update && \
