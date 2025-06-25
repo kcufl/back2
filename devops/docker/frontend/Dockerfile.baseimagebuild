@@ -33,7 +33,7 @@ FROM node:20-bullseye AS builder
 
 
 RUN corepack enable && \
-    corepack prepare yarn@4.4.1 --activate && \
+    corepack prepare yarn@3.8.1 --activate && \
     yarn --version
 
 RUN node -v && yarn -v
